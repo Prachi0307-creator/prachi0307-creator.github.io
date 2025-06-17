@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfolio of Prachi Bhardwaj, a Computer Science student specializing in AI, ML, and Data Structures." />
+  <meta name="keywords" content="Prachi Bhardwaj, portfolio, computer science, AI, ML, programming" />
+  <title>Prachi Bhardwaj - Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f5f5f5;
+      color: #333;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      transition: background 0.3s, color 0.3s;
+    }
+    body.dark-mode {
+      background: #2c3e50;
+      color: #e0e0e0;
+    }
+    .navbar {
+      position: sticky;
+      top: 0;
+      background: #2c3e50;
+      padding: 15px;
+      z-index: 100;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      margin-bottom: 20px;
+    }
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+      margin: 0 15px;
+      transition: color 0.3s, transform 0.3s;
+    }
+    .navbar a:hover {
+      color: #3498db;
+      transform: scale(1.1);
+    }
+    .dark-mode-toggle {
+      background: #3498db;
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+      margin-left: 15px;
+    }
+    .dark-mode-toggle:hover {
+      background: #2980b9;
+    }
+    .container {
+      max-width: 900px;
+      width: 100%;
+      background: #fff;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+    body.dark-mode .container {
+      background: #1a202c;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .header img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #3498db;
+      margin-bottom: 20px;
+      transition: transform 0.3s;
+    }
+    .header img:hover {
+      transform: scale(1.05);
+    }
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #2c3e50;
+      margin-bottom: 10px;
+    }
+    body.dark-mode h1, body.dark-mode h2, body.dark-mode h3 {
+      color: #e0f7fa;
+    }
+    h2 {
+      font-size: 2rem;
+      font-weight: 600;
+      color: #2c3e50;
+      margin-bottom: 20px;
+    }
+    h3 {
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: #2c3e50;
+      margin-bottom: 15px;
+    }
+    p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+    ul {
+      list-style: disc;
+      padding-left: 20px;
+      margin-bottom: 15px;
+    }
+    ul li {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+    a {
+      color: #3498db;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    a:hover {
+      color: #2980b9;
+    }
+    .contact-info, .skills, .coding-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+    .contact-info div {
+      font-size: 1.1rem;
+    }
+    .contact-info i {
+      margin-right: 8px;
+      color: #3498db;
+      transition: transform 0.3s;
+    }
+    .contact-info i:hover {
+      transform: rotate(360deg);
+    }
+    .badge {
+      background: #e0f7fa;
+      color: #006064;
+      padding: 10px 15px;
+      border-radius: 20px;
+      font-size: 1rem;
+      transition: transform 0.3s;
+    }
+    body.dark-mode .badge {
+      background: #4a5568;
+      color: #e0f7fa;
+    }
+    .badge:hover {
+      transform: translateY(-3px);
+    }
+    .card {
+      background: #f9f9f9;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    body.dark-mode .card {
+      background: #2d3748;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    }
+    .highlight {
+      font-weight: 600;
+      color: #2c3e50;
+    }
+    body.dark-mode .highlight {
+      color: #e0f7fa;
+    }
+    .btn {
+      display: inline-block;
+      padding: 12px 25px;
+      background: #3498db;
+      color: white;
+      border-radius: 25px;
+      font-size: 1.2rem;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+    .loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #2c3e50;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      opacity: 1;
+      transition: opacity 0.5s;
+    }
+    .loader.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+    .loader::after {
+      content: '';
+      width: 40px;
+      height: 40px;
+      border: 5px solid #3498db;
+      border-top: 5px solid transparent;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .container {
+        padding: 20px;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+      h2 {
+        font-size: 1.6rem;
+      }
+      h3 {
+        font-size: 1.3rem;
+      }
+      p, ul li {
+        font-size: 1rem;
+      }
+      .navbar {
+        flex-direction: column;
+        gap: 10px;
+      }
+      .navbar a {
+        margin: 0 5px;
+      }
+    }
+    @media (max-width: 480px) {
+      .header img {
+        width: 100px;
+        height: 100px;
+      }
+      .contact-info {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="loader"></div>
+  <nav class="navbar">
+    <a href="#about">About</a>
+    <a href="#education">Education</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#experience">Experience</a>
+    <a href="#achievements">Achievements</a>
+    <a href="#profiles">Profiles</a>
+    <a href="#resume">Resume</a>
+    <button class="dark-mode-toggle" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+  </nav>
+  <div class="container">
+    <div class="header">
+      <img src="my_pic.jpg" alt="Profile Picture" />
+      <h1>Prachi Bhardwaj</h1>
+      <div class="contact-info">
+        <div><i class="fas fa-map-marker-alt"></i> Delhi NCR, India</div>
+        <div><i class="fas fa-envelope"></i> <a href="mailto:prachi.bhardwaj0307@gmail.com">prachi.bhardwaj0307@gmail.com</a></div>
+        <div><i class="fas fa-phone"></i> <a href="tel:+91-8527853881">+91-8527853881</a></div>
+      </div>
+    </div>
+
+    <div class="section" id="about">
+      <h2>About Me</h2>
+      <p>
+        A third-year Computer Science student passionate about using technology to address real-world challenges. Skilled in Data Structures and Algorithms, I excel at crafting scalable solutions with modern tools. My aim is to develop impactful AI and ML applications while continually improving my software development expertise. I thrive in teamwork and am dedicated to delivering innovative, performance-driven solutions.
+      </p>
+    </div>
+
+    <div class="section" id="education">
+      <h2>Education</h2>
+      <ul>
+        <li><span class="highlight">B.Tech CSE (AI & ML)</span> – GL Bajaj Institute, CGPA: 8.57 (2022–2026)</li>
+        <li><span class="highlight">Class XII</span> – Lakshya Public School, 93.6% (2021–2022)</li>
+        <li><span class="highlight">Class X</span> – Lakshya Public School, 84.6% (2019–2020)</li>
+      </ul>
+    </div>
+
+    <div class="section" id="skills">
+      <h2>Skills</h2>
+      <div class="skills">
+        <span class="badge">C++</span>
+        <span class="badge">Python</span>
+        <span class="badge">MySQL</span>
+        <span class="badge">HTML</span>
+        <span class="badge">CSS</span>
+        <span class="badge">JavaScript</span>
+        <span class="badge">DSA</span>
+        <span class="badge">OOPs</span>
+        <span class="badge">OS</span>
+        <span class="badge">DBMS</span>
+        <span class="badge">AWS</span>
+        <span class="badge">Teamwork</span>
+        <span class="badge">Problem-Solving</span>
+      </div>
+    </div>
+
+    <div class="section" id="projects">
+      <h2>Projects</h2>
+      <div class="card">
+        <h3>News Recommendation System</h3>
+        <p>
+          Developed a content-based system using <span class="highlight">Python, NLTK, Scikit-learn</span>. Applied TF-IDF and cosine similarity for recommendations, visualized with Matplotlib. <a href="https://github.com/prachi/news-recommendation" target="_blank">GitHub</a>.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Handwritten Digit Recognition App</h3>
+        <p>
+          Built a mobile app with <span class="highlight">Flutter + TensorFlow Lite</span>, achieving 92.4% accuracy. Used a CNN model on MNIST data with Firebase integration. <a href="https://github.com/prachi/digit-recognizer" target="_blank">GitHub</a>.
+        </p>
+      </div>
+    </div>
+
+    <div class="section" id="experience">
+      <h2>Experience</h2>
+      <div class="card">
+        <h3>Amazon Internship – AICTE x EduSkills (2023)</h3>
+        <p>
+          During the AICTE - EduSkills Internship at Amazon, I gained hands-on experience with AWS cloud services. I learned to set up and manage virtual servers, configure storage, and deploy applications. Despite facing challenges with complex configurations and time management, I developed strong technical skills and problem-solving abilities
+        </p>
+      </div>
+    </div>
+
+    <div class="section" id="achievements">
+      <h2>Achievements</h2>
+      <ul>
+        <li><span class="highlight">2nd Place</span> – Katalyst Tech Fest 2025 (AI chatbot)</li>
+        <li><span class="highlight">Top 20</span> – Finxthon Hackathon (financial dashboard)</li>
+        <li>Solved <span class="highlight">300+ LeetCode</span> and <span class="highlight">150+ GeeksforGeeks</span> DSA problems</li>
+        <li><span class="highlight">Global Rank 5311</span> – TCS CodeVita Season 12 (Round 1)</li>
+        <li>AWS Certified Cloud Practitioner (2023)</li>
+      </ul>
+    </div>
+
+    <div class="section" id="profiles">
+      <h2>Profiles</h2>
+      <div class="coding-links">
+        <a href="https://leetcode.com/u/Prachi_bhardwaj_leet/" target="_blank">LeetCode</a>
+        <a href="https://www.geeksforgeeks.org/user/prachibharb3dv/" target="_blank">GeeksforGeeks</a>
+        <a href="https://www.codechef.com/users/prachi_0307" target="_blank">CodeChef</a>
+        <a href="https://www.linkedin.com/in/prachi-bhardwaj-574278257/" target="_blank">LinkedIn</a>
+        <a href="https://github.com/prachi" target="_blank">GitHub</a>
+      </div>
+    </div>
+
+    <div class="section" id="resume">
+      <h2>Resume</h2>
+      <a href="resume.pdf" class="btn" download>Download Resume</a>
+    </div>
+  </div>
+
+  <script>
+    // Dark Mode Toggle
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+      localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+    }
+    if (localStorage.getItem('darkMode') === 'true') {
+      document.body.classList.add('dark-mode');
+    }
+
+    // Hide Loader After Page Load
+    window.addEventListener('load', () => {
+      const loader = document.querySelector('.loader');
+      setTimeout(() => {
+        loader.classList.add('hidden');
+      }, 1000);
+    });
+
+    // Smooth Scroll for Navigation
+    document.querySelectorAll('.navbar a').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute('href').substring(1);
+        document.getElementById(targetId).scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
+</body>
+</html>
